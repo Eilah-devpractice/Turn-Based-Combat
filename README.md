@@ -4,10 +4,10 @@ PROJECT DESOLATE
 -----------------------
 WELCOME
 
-- This is a solo-dev project created by me for a computer graphics technology class at my university. It is due strictly on December 11, so it appears more like a game Demo. It will still be fun and playable. :)
-- As of 10.8.2026 it is unknown if it will be further developed after the deadline.
-- As of 10.8.2026 there are no contributors. 
--Thank you for the following individuals for testing DESOLATE on Android and Browser:
+This is a solo-dev project created by me for a computer graphics technology class at my university. It is due strictly on December 11, so it appears more like a game Demo. It will still be fun and playable. :)
+As of 10.8.2026 it is unknown if it will be further developed after the deadline.
+As of 10.8.2026 there are no contributors. 
+Thank you for the following individuals for testing DESOLATE on Android and Browser:
                                     [PLACEHOLDER]
 ------------------------
 REACH OUT
@@ -17,9 +17,9 @@ For questions and feedback. Ideas are welcome, too! I will update this document 
 ------------------------
 ACCESSIBILITY
 
--It will be accessible on browser, and as an Android app (.api)
--It will be formatted to fit both. 
--Project is publicly accessible on Git.
+It will be accessible on browser, and as an Android app (.api)
+It will be formatted to fit both. 
+Project is publicly accessible on Git.
 
 DOWNLOAD FROM APPSTORE --> OPEN APPLICATION --> START
 OPEN IN BROWSER --> START
