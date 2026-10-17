@@ -1,0 +1,13 @@
+#EnemySpritesheet {
+    width: 500px;
+    size: 600px;
+    image-rendering: pixelated;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}

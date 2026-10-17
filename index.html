@@ -8,20 +8,32 @@
   <title>DESOLATE</title>
 </head>
 <body>
-
-
-
 <main>
+<!-- Start -->
+<div id="start-screen" class="screen active">
   <h1>D E S O L A T E</h1>
-<p>Player HP <span id="player-hp">100</span></p> <!--this is the player's hp-->
-<div id="log"></div>
-<p>Enemy HP: <span id="enemy-hp">100</span></p> <!-- this is the enemy's hp-->
-<button id="attack-btn">Attack</button> <!-- an attack button for the user-->
+  <button id="start-btn">Start</button>
+</div>
+<!--Overworld-->
+<div id="world-screen" class="screen">
+  <p>This is the world.</p>
+  <button id="test-battle-btn">Test battle</button>
+</div>
+
+<!---Battle screen-->
+</div>
+<div id="battle-screen" class="screen">
+  <img id="TheEnemy" src="Sprites/Characters/EnemySpritesheet.png"> <!-- Placeholder for enemy (sorry pete)-->
+  <p>Player HP <span id="player-hp">100</span></p>
+  <div id="log"></div>
+  <p>Enemy HP: <span id="enemy-hp">100</span></p>
+  <button id="attack-btn">Attack</button>
+</div>
 </main>
 
 <script src="js/character.js"></script>
 <script src="js/ui.js"></script>
-<script src="js/game.Manager.js"></script>
+<script src="js/gameManager.js"></script>
 <script src="js/main.js"></script>
 
 
