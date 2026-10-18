@@ -16,12 +16,22 @@
 </div>
 <!--Overworld-->
 <div id="world-screen" class="screen">
-  <p>This is the world.</p>
+  <div id="world">
+    <img id="player" src="Sprites/Characters/player_side.png">
+  </div>
+  <!--mobile controls UNFINISHED, UNLINKED-->
+      <div id="dpad">
+      <button data-direction="up">▲</button>
+      <div>
+        <button data-direction="left">◀</button>
+        <button data-direction="down">▼</button>
+        <button data-direction="right">▶</button>
+      </div>
+    </div>
   <button id="test-battle-btn">Test battle</button>
 </div>
 
 <!---Battle screen-->
-</div>
 <div id="battle-screen" class="screen">
   <img id="TheEnemy" src="Sprites/Characters/EnemySpritesheet.png"> <!-- Placeholder for enemy (sorry pete)-->
   <p>Player HP <span id="player-hp">100</span></p>
