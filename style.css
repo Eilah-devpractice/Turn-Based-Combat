@@ -1,4 +1,4 @@
-#EnemySpritesheet {
+#Enemy {
     width: 500px;
     size: 600px;
     image-rendering: pixelated;
@@ -24,4 +24,17 @@
   top: 100px;
   width: 128px;
   image-rendering: pixelated;
+}
+
+/* mobile movement */
+#dpad {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#dpad button {
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+  touch-action: manipulation;
 }
