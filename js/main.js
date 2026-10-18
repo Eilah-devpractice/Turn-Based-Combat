@@ -16,7 +16,13 @@ function endBattle(message) { //this ends the battle after one character has won
     log(message);
     document.getElementById("attack-btn").disabled = true;
 }
-
+function resetBattle() {
+  enemyHealth = 100;
+  playerHealth = 100;
+  document.getElementById("log").innerHTML = "";
+  document.getElementById("attack-btn").disabled = false;
+  updateScreen();
+}
 //battle functions
 function attack() {
     //enemy's hitpoints
@@ -53,7 +59,7 @@ document.getElementById("test-battle-btn").addEventListener("click", function ()
 let playerX = 100;
 let playerY = 100;
 const speed = 10;
-const playerSize = 128; // matches the width in style.css
+const playerSize = 128;
 
 function move(direction) {
   const worldScreen = document.getElementById("world-screen");
@@ -78,8 +84,7 @@ function move(direction) {
     playerY = playerY + speed;
   }
 
-  // keep the player inside the world box
-  playerX = Math.max(0, Math.min(playerX, 800 - playerSize));
+  playerX = Math.max(0, Math.min(playerX, 1500 - playerSize)); // player shouldnt move away from the box
   playerY = Math.max(0, Math.min(playerY, 500 - playerSize));
 
   player.style.left = playerX + "px";
@@ -105,7 +110,7 @@ function handleKey(event) {
 
 document.addEventListener("keydown", handleKey);
 
-// on-screen buttons
+//function for buttons when clicked by user
 document.querySelectorAll("#dpad button").forEach(function (button) {
   button.addEventListener("click", function () {
     move(button.dataset.direction);

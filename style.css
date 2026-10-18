@@ -11,9 +11,10 @@
 .screen.active {
   display: block;
 }
+/*world sizing*/
 #world {
   position: relative;
-  width: 800px;
+  width: 1500px;
   height: 500px;
   border: 2px solid rgb(0, 0, 0);
 }

@@ -7,13 +7,14 @@ PROJECT DESOLATE
 -----------------------
 WELCOME
 
-This is a solo-dev project created by me for a computer graphics technology class at my university. It is due strictly on December 11, so it appears more like a game Demo. It will still be fun and playable. :)
+This is a solo-dev project created by me for a computer graphics technology class at my university. It is due strictly on December 11, so some content was cut.
 
 As of 10.8.2026 it is unknown if it will be further developed after the deadline.
 
 As of 10.8.2026 there are no contributors. 
 
-10.17.2026 future goals --> Add a death screen, fix mobile buttons, add walking and turning animations.
+10.17.2026 future goals --> Add a death/end of game screen. Add enemy to overworld and collision.
+
 
 Thank you for the following individuals for testing DESOLATE on Android and Browser:
 
