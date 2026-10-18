@@ -13,6 +13,8 @@ As of 10.8.2026 it is unknown if it will be further developed after the deadline
 
 As of 10.8.2026 there are no contributors. 
 
+10.17.2026 future goals --> Add a death screen, fix mobile buttons, add walking and turning animations.
+
 Thank you for the following individuals for testing DESOLATE on Android and Browser:
 
                                     [PLACEHOLDER]
@@ -47,5 +49,11 @@ Retro Pokemon Games [Combat style]
 Omori [Combat style, themes, visuals]
 
 Deltarune [Combat style, visuals, character design, some themes]
+
+The game is a metaphor that is up to player's interpretation.
+
+Turn-Based combat is the main focus.
+
+There are separate screens for the overworld, main menu, and battles/loss screens. 
 
 ------------------------

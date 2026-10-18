@@ -50,34 +50,64 @@ document.getElementById("test-battle-btn").addEventListener("click", function ()
 });
 
 //player movement
-
 let playerX = 100;
 let playerY = 100;
 const speed = 10;
+const playerSize = 128; // matches the width in style.css
 
-function movePlayer(event) {
-  const key = event.key.toLowerCase();
-  const worldScreen = document.getElementById("world-screen"); 
+function move(direction) {
+  const worldScreen = document.getElementById("world-screen");
   if (!worldScreen.classList.contains("active")) {
     return;
   }
 
-  if (key === "a") {
+  const player = document.getElementById("player");
+
+  if (direction === "left") {
     playerX = playerX - speed;
+    player.style.transform = "scaleX(1)";
   }
-  if (key === "d") {
+  if (direction === "right") {
     playerX = playerX + speed;
+    player.style.transform = "scaleX(-1)";
   }
-  if (key === "w") {
+  if (direction === "up") {
     playerY = playerY - speed;
   }
-  if (event.key === "s") {
+  if (direction === "down") {
     playerY = playerY + speed;
   }
 
-  const player = document.getElementById("player");
+  // keep the player inside the world box
+  playerX = Math.max(0, Math.min(playerX, 800 - playerSize));
+  playerY = Math.max(0, Math.min(playerY, 500 - playerSize));
+
   player.style.left = playerX + "px";
   player.style.top = playerY + "px";
 }
+// player on laptop/desktop can move with both the arrow keys & the wasd keys.
+function handleKey(event) {
+  const key = event.key.toLowerCase();
 
-document.addEventListener("keydown", movePlayer); // the player moves when the key is pressed.
+  if (key === "a" || key === "arrowleft") {
+    move("left");
+  }
+  if (key === "d" || key === "arrowright") {
+    move("right");
+  }
+  if (key === "w" || key === "arrowup") {
+    move("up");
+  }
+  if (key === "s" || key === "arrowdown") {
+    move("down");
+  }
+}
+
+document.addEventListener("keydown", handleKey);
+
+// on-screen buttons
+document.querySelectorAll("#dpad button").forEach(function (button) {
+  button.addEventListener("click", function () {
+    move(button.dataset.direction);
+  });
+});
