@@ -35,10 +35,15 @@ function attack() {
         enemyHealth = 0; // makes it so that the enemy's hp shows as 0 (not a negative num)
         updateScreen();
         endBattle("??? ran away, never to be seen again...")
+        setTimeout(function () {
+          enemyAlive = false;
+          document.getElementById("world-enemy").style.display = "none"; // enemy wont show up if defeated
+          showScreen("world"); // world shows without enemy in it
+        }, 3000);
         return;
     }
 //player's hit points
-    playerHealth = playerHealth - 10; // enemy will always attack
+    playerHealth = playerHealth - 20; // enemy will always attack
     log("!!!");
     if (playerHealth <= 0){
         playerHealth = 0;
@@ -53,22 +58,62 @@ function attack() {
 }
 //buttons for each screen
 document.getElementById("attack-btn").addEventListener("click", attack); //button is clicked and subtracts health from characters
+
 document.getElementById("start-btn").addEventListener("click", function () {
   showScreen("world");
 });
+
 document.getElementById("test-battle-btn").addEventListener("click", function () {
   showScreen("battle");
+});
 document.getElementById("retry-btn").addEventListener("click", function () {
   resetBattle();
+  playerX = 100;
+  playerY = 100;
+  placePlayer();
   showScreen("world");
 });
-});
+
 
 //player movement
 let playerX = 100;
 let playerY = 100;
 const speed = 10;
 const playerSize = 128;
+let enemyAlive = true; // enemy status
+// puts the player image at playerX / playerY
+function placePlayer() {
+  const player = document.getElementById("player");
+  player.style.left = playerX + "px";
+  player.style.top = playerY + "px";
+}
+
+// starts a battle
+function startBattle() {
+  resetBattle();
+  showScreen("battle");
+}
+
+// checks if the player overlaps the enemy
+
+// i wanted to add collision detection to start the battle, so that is what's below.
+function checkCollision() {
+  if (!enemyAlive) {
+    return;
+  }
+
+  const enemy = document.getElementById("world-enemy");
+
+  const touching =
+    playerX < enemy.offsetLeft + enemy.offsetWidth &&
+    playerX + playerSize > enemy.offsetLeft &&
+    playerY < enemy.offsetTop + enemy.offsetHeight &&
+    playerY + playerSize > enemy.offsetTop;
+
+  if (touching) {
+    startBattle(); //battle begins once the player is in contact with enemy.
+  }
+}
 
 function move(direction) {
   const worldScreen = document.getElementById("world-screen");
@@ -96,8 +141,8 @@ function move(direction) {
   playerX = Math.max(0, Math.min(playerX, 1500 - playerSize)); // player shouldnt move away from the box
   playerY = Math.max(0, Math.min(playerY, 500 - playerSize));
 
-  player.style.left = playerX + "px";
-  player.style.top = playerY + "px";
+  placePlayer();
+  checkCollision();
 }
 // player on laptop/desktop can move with both the arrow keys & the wasd keys.
 function handleKey(event) {
