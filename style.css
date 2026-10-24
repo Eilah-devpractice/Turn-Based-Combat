@@ -11,20 +11,14 @@
 .screen.active {
   display: block;
 }
+/*world sizing*/
 #world {
   position: relative;
-  width: 800px;
+  width: 1500px;
   height: 500px;
   border: 2px solid rgb(0, 0, 0);
 }
 
-#player {
-  position: absolute;
-  left: 100px;
-  top: 100px;
-  width: 128px;
-  image-rendering: pixelated;
-}
 
 /* mobile movement */
 #dpad {
@@ -37,4 +31,37 @@
   height: 70px;
   font-size: 28px;
   touch-action: manipulation;
+
+
+/* character styling*/
+}
+#world-enemy {
+  position: absolute;
+  left: 600px; 
+  top: 150px;
+  width: 128px;
+  height: 128px;
+  background: red;
+}
+
+#player {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 128px;
+  image-rendering: pixelated;
+}
+#pete{
+  position:absolute;
+  left:100px;
+  bottom: 100px;
+  width:128px;
+  image-rendering: pixelated;
+}
+#monty{
+  position:absolute;
+  left:30px;
+  bottom: 100px;
+  width:128px;
+  image-rendering: pixelated;
 }

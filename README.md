@@ -7,34 +7,39 @@ PROJECT DESOLATE
 -----------------------
 WELCOME
 
-This is a solo-dev project created by me for a computer graphics technology class at my university. It is due strictly on December 11, so it appears more like a game Demo. It will still be fun and playable. :)
+This is a solo-dev project created by me for a computer graphics technology class at my university. It is due strictly on December 11, so some content was cut. Regardless, the goal is to have a functional game created by me that meets the project requirements. 
 
-As of 10.8.2026 it is unknown if it will be further developed after the deadline.
 
-As of 10.8.2026 there are no contributors. 
+---Self Notes---
+As of 10.8.2026, it is unknown if it will be further developed after the deadline (Dec 11).
 
-10.17.2026 future goals --> Add a death screen, fix mobile buttons, add walking and turning animations.
+As of 10.8.2026, there are no contributors. 
 
-Thank you for the following individuals for testing DESOLATE on Android and Browser:
+10.17.2026 future goals --> Add a death/end of game screen. Add enemy to overworld and collision.
 
-                                    [PLACEHOLDER]
+
+
+
+
+Thank you for the following individuals for testing DESOLATE on Android and Browser: PLACEHOLDER
 ------------------------
 REACH OUT
-email: john5023@purdue.edu 
+school email: john5023@purdue.edu 
 
-Discord: vilkas._ 
+discord: vilkas._ 
 
 For questions and feedback. Ideas are welcome, too! I will update this document to include your thanks and credit.
 
 ------------------------
 ACCESSIBILITY
 
-It will be accessible on browser, and as an Android app (.api)
+It will be accessible on browser, and as an Android app (.apk)
 
 It will be formatted to fit both. 
 
 Project is publicly accessible on Git.
 
+Instructions (update later):
 DOWNLOAD FROM APPSTORE --> OPEN APPLICATION --> START
 
 OPEN IN BROWSER --> START

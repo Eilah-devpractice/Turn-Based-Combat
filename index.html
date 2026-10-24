@@ -1,23 +1,27 @@
+<!--Hello!-->
+<!--I made most assets myself. I am  more of an artist than a game programmer... Hope you enjoy my project!-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Turn-Based Combat/RPG Final Project</title>
+  <title>Turn-Based Combat Final Project</title>
   <link rel="stylesheet" href="style.css">
-  <title>DESOLATE</title>
 </head>
 <body>
 <main>
 <!-- Start -->
 <div id="start-screen" class="screen active">
-  <h1>D E S O L A T E</h1>
+  <h1>DESOLATE</h1>
   <button id="start-btn">Start</button>
 </div>
 <!--Overworld-->
 <div id="world-screen" class="screen">
   <div id="world">
     <img id="player" src="Sprites/Characters/player_side.png">
+    <img id="pete" src="Sprites/Characters/pete_leftsit.png"> <!--my friend's cat Pete-->
+    <img id="monty" src="Sprites/Characters/monty_sit.png"> <!--my cat Monty-->
+    <div id="world-enemy"></div> <!---placeholder for enemy-->
   </div>
   <!--mobile controls-->
       <div id="dpad">
@@ -31,7 +35,7 @@
   <button id="test-battle-btn">Test battle</button>
 </div>
 
-<!---Battle screen-->
+<!---battle screen-->
 <div id="battle-screen" class="screen">
   <img id="Enemy" src="Sprites/Characters/EnemySpritesheet.png"> <!-- Placeholder for enemy -->
   <p>Player HP <span id="player-hp">100</span></p>
@@ -39,8 +43,16 @@
   <p>Enemy HP: <span id="enemy-hp">100</span></p>
   <button id="attack-btn">Attack</button>
 </div>
+
+<!-- death screen -->
+<div id="death-screen" class="screen">
+  <h1>Y O U   F E L L . . . </h1>
+  <p>All HOPE isn't lost yet!</p>
+  <button id="retry-btn">Continue</button>
+</div>
 </main>
 
+<!--linking scripts-->
 <script src="js/character.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/gameManager.js"></script>
