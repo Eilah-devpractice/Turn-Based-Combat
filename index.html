@@ -1,5 +1,5 @@
 <!--Hello!-->
-<!--I made most assets myself. I am  more of an artist than a game programmer... Hope you enjoy my project!-->
+<!--Hope you enjoy my project! It was a learning process. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +18,16 @@
 <!--Overworld-->
 <div id="world-screen" class="screen">
   <div id="world">
-    <img id="player" src="Sprites/Characters/player_side.png">
-    <img id="pete" src="Sprites/Characters/pete_leftsit.png"> <!--my friend's cat Pete-->
-    <img id="monty" src="Sprites/Characters/monty_sit.png"> <!--my cat Monty-->
-    <div id="world-enemy" class="enemy-sprite"></div>
-  </div>
-  <!--mobile controls-->
+    <img id="player" src="Sprites/Characters/player_side.png" alt="you, the player character">
+    <img id="catlitter" src="Sprites/Environment/catlitter.png" alt="cat litter box"> 
+    <div id="cats">
+      <img id="pete" src="Sprites/Characters/pete_leftsit.png" alt="pete npc character"> <!--my friend's cat Pete-->
+      <img id="monty" src="Sprites/Characters/monty_sit.png" alt="monty npc character"> <!--my cat Monty-->
+    </div> <!-- closing tag for cats-->
+  <div id="world-enemy" class="enemy-sprite"></div>
+  </div> <!--closing tag for world-->
+
+  <!--button controls-->
       <div id="dpad">
       <button data-direction="up">▲</button>
       <div>
@@ -32,13 +36,24 @@
         <button data-direction="right">▶</button>
       </div>
     </div>
+
+  <!--dialogue-->
+<button id="talk-btn" hidden>Talk (E)</button> <!--should be hidden until the player is in vicinity of the cats-->
+<div id="dialogue-box" hidden>
+  <p id="dialogue-speaker"></p>
+  <p id="dialogue-text"></p>
+  <button id="dialogue-next">Next (E)</button>
+  <div id="dialogue-choices" hidden>
+    <button id="dialogue-ok">OK.</button>
+  </div>
+</div>
   <button id="test-battle-btn">Test battle</button>
 </div>
 
 <!---battle screen-->
 <div id="battle-screen" class="screen">
   <div id="Enemy" class="enemy-sprite"></div>
-  <p>Player HP <span id="player-hp">100</span></p>
+  <p>Player HP <span id="player-hp">125</span></p>
   <div id="log"></div>
   <p>Enemy HP: <span id="enemy-hp">100</span></p>
   <button id="attack-btn">Attack</button>

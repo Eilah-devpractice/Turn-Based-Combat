@@ -1,5 +1,3 @@
-// To explain all of the inline comments: I am a bit of a scatterbrain but I know what I'm doing :)
-
 // player and enemy health
 let enemyHealth = 100;
 let playerHealth = 125;
@@ -64,7 +62,7 @@ document.getElementById("start-btn").addEventListener("click", function () {
 });
 
 document.getElementById("test-battle-btn").addEventListener("click", function () {
-  showScreen("battle");
+  startBattle(); //test button if you just want to use the battle feature
 });
 document.getElementById("retry-btn").addEventListener("click", function () {
   resetBattle();
@@ -81,20 +79,19 @@ let playerY = 100;
 const speed = 10;
 const playerSize = 128;
 let enemyAlive = true; // enemy status
-// puts the player image at playerX / playerY
+
+// puts the player image at playerX / playerY. 
+
 function placePlayer() {
   const player = document.getElementById("player");
   player.style.left = playerX + "px";
   player.style.top = playerY + "px";
+  updateTalkButton();
 }
-
-// starts a battle
 function startBattle() {
   resetBattle();
   showScreen("battle");
 }
-
-// checks if the player overlaps the enemy
 
 // i wanted to add collision detection to start the battle, so that is what's below.
 function checkCollision() {
@@ -137,6 +134,9 @@ function move(direction) {
   if (direction === "down") {
     playerY = playerY + speed;
   }
+    if (dialogueOpen) { //player shouldnt be able to move when npc dialogue runs
+    return;
+  }
 
   playerX = Math.max(0, Math.min(playerX, 1500 - playerSize)); // player shouldnt move away from the box
   playerY = Math.max(0, Math.min(playerY, 500 - playerSize));
@@ -160,6 +160,9 @@ function handleKey(event) {
   if (key === "s" || key === "arrowdown") {
     move("down");
   }
+    if (key === "e" && !event.repeat) {
+    interact(); // for the dialogue :)
+  }
 }
 
 document.addEventListener("keydown", handleKey);
@@ -171,3 +174,94 @@ document.querySelectorAll("#dpad button").forEach(function (button) { // allows 
 
   });
 });
+
+// dialogue
+let dialogueOpen = false; 
+let choosing = false; 
+let dialogueLines = []; // lines read
+let dialogueIndex = 0; // I noticed indexing is similar across coding languages. I am also learning python so I can infer that 0 is the first line
+
+
+// collision, similar to the enemy
+function nearCats() {
+  const cats = document.getElementById("cats"); // pulled from index
+  const margin = 40; // works similar to padding
+
+  return (
+    playerX < cats.offsetLeft + cats.offsetWidth + margin &&
+    playerX + playerSize > cats.offsetLeft - margin &&
+    playerY < cats.offsetTop + cats.offsetHeight + margin &&
+    playerY + playerSize > cats.offsetTop - margin
+  );
+}
+
+// collision checking, talk button shown when nearby.
+function updateTalkButton() {
+  const talkBtn = document.getElementById("talk-btn");
+  talkBtn.hidden = dialogueOpen || !nearCats();
+}
+
+
+const catLines = [
+  { speaker: "Pete and Monty", text: "Don't forget to change the litterbox." }
+
+];
+
+function showLine() {
+  const line = dialogueLines[dialogueIndex];
+  document.getElementById("dialogue-speaker").textContent = line.speaker;
+  document.getElementById("dialogue-text").textContent = line.text;
+
+  // on the last line, swap the Next button for the OK button
+  const isLast = dialogueIndex === dialogueLines.length - 1;
+  choosing = isLast;
+  document.getElementById("dialogue-next").hidden = isLast;
+  document.getElementById("dialogue-choices").hidden = !isLast;
+}
+
+
+function nextLine() {
+  dialogueIndex = dialogueIndex + 1; //adds to the list, or the index of dialogue if there is more lines
+  showLine();
+}
+
+function openDialogue() {
+  dialogueOpen = true;
+  dialogueLines = catLines;
+  dialogueIndex = 0;
+  document.getElementById("dialogue-box").hidden = false;
+  showLine();
+  updateTalkButton();
+}
+
+function closeDialogue() {
+  dialogueOpen = false;
+  choosing = false;
+  document.getElementById("dialogue-box").hidden = true;
+  updateTalkButton();
+}
+
+
+function interact() {
+  const worldScreen = document.getElementById("world-screen");
+  if (!worldScreen.classList.contains("active")) {
+    return;
+  }
+
+  if (dialogueOpen) {
+    if (choosing) {
+      closeDialogue(); 
+    } else {
+      nextLine();
+    }
+    return;
+  }
+
+  if (nearCats()) { //if statement that checks if the player is near the npcs.
+    openDialogue(); 
+  }
+}
+
+document.getElementById("talk-btn").addEventListener("click", interact);
+document.getElementById("dialogue-next").addEventListener("click", nextLine);
+document.getElementById("dialogue-ok").addEventListener("click", closeDialogue);
